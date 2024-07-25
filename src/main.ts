@@ -1,6 +1,7 @@
 import { NestFactory } from "@nestjs/core";
 import { AppModule } from "./app.module";
 import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
+import { JwtAuthGuard } from "./auth/jwt-auth.guard";
 
 async function start() {
     const port = process.env.port || 5000;
@@ -15,6 +16,8 @@ async function start() {
 
     const document = SwaggerModule.createDocument(app, config);
     SwaggerModule.setup('/api/docs', app, document)
+    // глобальний гвард
+    // app.useGlobalGuards(JwtAuthGuard) 
 
 
     await app.listen(port, () => {
