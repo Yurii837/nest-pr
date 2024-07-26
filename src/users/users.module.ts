@@ -9,12 +9,13 @@ import { UserRoles } from 'src/roles/user-roles.model';
 import { RolesModule } from 'src/roles/roles.module';
 import { AuthModule } from 'src/auth/auth.module';
 import { Validation } from 'src/pipes/validation.pipe';
+import { Post } from 'src/posts/posts.model';
 
 @Module({
   controllers: [UsersController],
   providers: [UsersService, Validation],
   imports: [
-    SequelizeModule.forFeature([User, Role, UserRoles]),
+    SequelizeModule.forFeature([User, Role, UserRoles, Post]),
     // таким чином імпотртуєм RolesModule разом з RolesService
     RolesModule,
     // для запобігання кільцевї зацикленості, можна просто AuthModule

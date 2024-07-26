@@ -19,6 +19,9 @@ async function start() {
     // глобальний гвард
     // app.useGlobalGuards(JwtAuthGuard) 
 
+    // глобальний пайп
+    // app.useGlobalPipes(new Validation()) 
+
 
     await app.listen(port, () => {
         console.log('server works on '+port)
